@@ -1,0 +1,26 @@
+<View xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m" controllerName="sap.ui.demo.todo.controller.App" displayBlock="true">
+	<Shell>
+		<App>
+			<Page backgroundDesign="Solid">
+				<content>
+					<l:HorizontalLayout class="sapUiResponsiveMargin">
+						<Input enabled="true" id="creation" />
+						<Button  icon="sap-icon://delete" text="{i18n>ADD}" press=".addTodo" />
+					</l:HorizontalLayout>
+					<List id="todoList" items="{ path: '/Todo', events: { change: '.updateItemsLeftCount' } }" mode="MultiSelect" growing="true" growingScrollToLoad="true" showNoData="false" showSeparators="None" rememberSelections="false">
+						<CustomListItem class="todoListItem" selected="{completed}">
+							<Input enabled="false" value="{name}" />
+						</CustomListItem>
+					</List>
+				</content>
+				<footer>
+					<Bar>
+						<contentRight>
+							<Button id="clearCompleted" icon="sap-icon://delete" text="{i18n>MARK_COMPLETED}" press=".clearCompleted" />
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</App>
+	</Shell>
+</View>
